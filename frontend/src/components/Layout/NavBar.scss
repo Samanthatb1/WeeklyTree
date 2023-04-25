@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@700&display=swap');
+
+.nav_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  background-color: #CBF3F0;
+
+  p{
+    margin: 0;
+    padding: 20px 30px 20px 10px;
+    font-size: 25px;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+  }
+}
