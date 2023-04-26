@@ -17,3 +17,12 @@
     text-decoration: none;
   }
 }
+
+@media screen and (max-width: 307px) {
+  .nav_container{
+    justify-content: space-evenly;
+    a{
+      padding: 20px 0px;
+    }
+  }
+}

@@ -5,7 +5,7 @@ function Landing(){
   return (
     <>
       <Hero />
-      {/* <SignUp /> */}
+      <SignUp />
     </>
   )
 }
