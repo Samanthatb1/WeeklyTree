@@ -3,8 +3,8 @@ import "./NavBar.scss";
 function NavBar() {
   return (
     <div class="nav_container">
-      <p>Sign Up</p>
-      <p>Unsubscribe</p>
+      <a href="/"> Home </a>
+      <a href="/unsubscribe"> Unsubscribe </a>
     </div>
   )
 }

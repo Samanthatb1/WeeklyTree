@@ -1,11 +1,13 @@
+const api_base_endpoint = process.env.REACT_APP_BASE_ENDPOINT_URL;
 
-require('dotenv').config()
-
+// tested user exists and doesnt exist
 async function addUser(userObj){
   const {email, links} = userObj;
 
+  const url = api_base_endpoint + "/newUser"
+
   try {
-    const req = await fetch(process.env.BASE_ENDPOINT_URL + "/newUser", {
+    const req = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,7 +15,7 @@ async function addUser(userObj){
       body: JSON.stringify({email_id : email, links}),
     });
 
-    const res = await req.json();
+    const res = await req.text();
     console.log(res)
   }
   catch(e){
@@ -21,9 +23,10 @@ async function addUser(userObj){
   }
 }
 
+// works!
 async function deleteUser(email){
   try {
-    const req = await fetch(process.env.BASE_ENDPOINT_URL + "/deleteUser", {
+    const req = await fetch(process.env.REACT_APP_BASE_ENDPOINT_URL + "/deleteUser", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +44,7 @@ async function deleteUser(email){
 
 async function sendEmails(){
   try {
-    const req = await fetch(process.env.BASE_ENDPOINT_URL + "/sendEmails", {
+    const req = await fetch(process.env.REACT_APP_BASE_ENDPOINT_URL + "/sendEmails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

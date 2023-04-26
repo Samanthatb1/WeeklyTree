@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "./Landing.scss";
 import Input from "./Input";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const {addUser} = require('../../services/api');
 
 function SignUp(){
@@ -23,6 +23,7 @@ function SignUp(){
   const [data, setData] = useState([""]);
   const [email, setEmail] = useState([""]);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   function NewInput(newId){
     return {
@@ -60,33 +61,39 @@ function SignUp(){
   }
 
   async function submit(){
-    const history = useHistory();
     setError(false);
 
     // 1. validate email
     const emailRegex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/);
     if (!emailRegex.test(email)){
+      console.log("email err")
       setError(true);
       return;
     }
 
     // 2. validate linktree links
+    if (data.length === 0){
+      setError(true);
+      return;
+    }
     for (let link of data) { 
       let regex = /https:\/\/linktr\.ee\/[A-Za-z]+/i;
-      if (link !== "" && link !== " " && !regex.test(link)) {
+      if (!regex.test(link)) {
+        console.log("link err")
         setError(true);
         return;
       }
     }
     
-    addUser({email, data})
-      .then(() => history.push("/success"))
+    addUser({email, links: data})
+      .then(() => navigate("/success"))
       .catch(e => setError(true))
   }
 
   return (
     <div class="signup_container">
       <div class="signup_email">
+        <h2>Sign Up</h2>
         <h3>Email</h3>
         <p>You can unsubscribe at any time</p>
         <input 

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 .hero_container{
   height: calc(100vh - 70px);
@@ -12,16 +13,17 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-evenly;
   align-items: center;
 
   .hero_text{
     margin: 0;
-    padding: 0 200px 200px 200px;
+    padding: 0px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 50vh;
+    margin-bottom: 90px;
 
     h1{
       margin: 0;
@@ -53,12 +55,18 @@
   .hero_image{
     width: 400px;
     height: 700px;
-    background-color: pink;
+    background-image: url("../../../public/images/phone.png");
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 400px 700px;
+    position: relative;
+    margin: 0 30px 70px 0;
   }
 }
 
 .signup_container{
-  height: 80vh;
+  height: fit-content;
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
@@ -67,6 +75,14 @@
 
   .signup_email{
     width: 40vw;
+
+    h2{
+      font-family: 'Lobster', cursive;
+      font-size: 90px;
+      margin:0 0 10px -30px;
+      color: #FF9F1C;
+      text-shadow: 2px 2px black;
+    }
 
     h3{
       margin: 20px 0 10px 0;
@@ -164,6 +180,7 @@
       background-repeat: no-repeat;
       background-size: 30vw 80px;
       position: relative;
+      text-shadow: 2px 2px rgb(255, 255, 255);
     }
 
     ul{
@@ -173,6 +190,50 @@
     li{
       padding: 10px;
       font-size: 20px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1168px) {
+  .hero_container{
+    .hero_text{
+      margin: 0 0px 90px 20px;
+      height: 45vh;
+      h1{
+        font-size: 100px;
+      }
+      p{
+        font-size: 25px;
+        width: 430px;
+      }
+    }
+    .hero_image{
+      width: 350px;
+      height: 600px;
+      background-size: 350px 600px;
+      margin: 0 5px 70px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 837px) {
+  .hero_container{
+    background-image: none;
+    background-color: #CBF3F0;
+    .hero_text{
+      margin: 0;
+      height: 45vh;
+      h1{
+        font-size: 120px;
+      }
+      p{
+        font-size: 25px;
+        width: 430px;
+      }
+    }
+    .hero_image{
+      display: none;
     }
   }
 }

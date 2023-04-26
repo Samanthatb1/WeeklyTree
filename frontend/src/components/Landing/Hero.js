@@ -8,7 +8,7 @@ function Hero(){
         <p>Receive weekly email updates from your choice of LinkTree's, all in one email </p>
         <button>start receiving emails</button>
       </div>
-      <div class="hero_image">h</div>
+      <div class="hero_image"></div>
     </div>
   )
 }

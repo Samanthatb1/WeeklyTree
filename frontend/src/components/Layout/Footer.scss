@@ -8,4 +8,25 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  .footer_links{
+    margin: 0 0 80px 150px;
+    display: flex;
+    flex-direction: column;
+  
+    a{
+      padding: 10px;
+      font-size: 25px;
+      text-decoration: none;
+      color: #003049;
+
+      &:hover{
+        color:#00679e;
+      }
+    }
+  }
 }
