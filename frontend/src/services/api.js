@@ -34,7 +34,7 @@ async function deleteUser(email){
       body: JSON.stringify({email_id : email}),
     });
 
-    const res = await req.json();
+    const res = await req.text();
     console.log(res)
   }
   catch(e){
@@ -42,21 +42,4 @@ async function deleteUser(email){
   }
 }
 
-async function sendEmails(){
-  try {
-    const req = await fetch(process.env.REACT_APP_BASE_ENDPOINT_URL + "/sendEmails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    });
-
-    const res = await req.json();
-    console.log(res)
-  }
-  catch(e){
-    console.log("there was a failure in the send emails fetch:", e)
-  }
-}
-
-module.exports = {addUser, deleteUser, sendEmails}
+module.exports = {addUser, deleteUser}

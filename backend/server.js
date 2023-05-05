@@ -77,21 +77,6 @@ app.delete("/deleteUser", async (req, res) => {
 })
 
 // ****************************
-// @desc sends all email subscriptions
-// @route post /sendEmails
-// ****************************
-app.post("/sendEmails", async (req, res) => {
-  try {
-    const allUsers = await MongooseModel.find({}).lean();
-    await sendEmails(allUsers)
-  } catch(e){
-    res.status(500).send('Sending emails failed');
-  }
-
-  res.status(200).send("successful");
-})
-
-// ****************************
 // @desc keeps the backend alive
 // @route get /keepAlive
 // ****************************
@@ -99,6 +84,22 @@ app.get("/keepAlive", (req, res) => {
   res.status(200).send("successful");
 })
 
+// --------------------------------------
+// --------------------------------------
+
+// ****************************
+// @desc sends all email subscriptions
+// ****************************
+setInterval(async () => {
+  try {
+    const allUsers = await MongooseModel.find({}).lean();
+    await sendEmails(allUsers)
+  } catch(e){
+    console.log('Sending emails failed');
+  }
+}, 86400 * 1000);
+
+// --------------------------------------
 // --------------------------------------
 // --------------------------------------
 
