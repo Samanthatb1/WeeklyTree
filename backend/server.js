@@ -81,6 +81,7 @@ app.delete("/deleteUser", async (req, res) => {
 // @route get /keepAlive
 // ****************************
 app.get("/keepAlive", (req, res) => {
+  console.log("keep alive ping")
   res.status(200).send("successful");
 })
 
@@ -97,7 +98,7 @@ setInterval(async () => {
   } catch(e){
     console.log('Sending emails failed');
   }
-}, 10 * 60 * 1000);
+}, 259200 * 1000);
 
 // --------------------------------------
 // --------------------------------------
