@@ -89,6 +89,7 @@ app.get("/keepAlive", async (req, res) => {
   const date = new Date(); 
   const now = date.getHours();
 
+  console.log(day, now);
   if (day == 2 && now == 23){
       try {
       console.log("About to send")
