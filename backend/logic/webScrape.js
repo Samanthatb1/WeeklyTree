@@ -31,6 +31,7 @@ function memoizedData(){
 
 // Scrapes data given a Link Tree url
 async function getData(link){
+  console.log(link);
   const res = await fetch(link);
   const html = await res.text();
 
