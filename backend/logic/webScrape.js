@@ -24,7 +24,7 @@ function memoizedData(){
       }
     } catch(e){
       console.log("Link isnt a valid link tree")
-      throw new Error("invalid linktree")
+      throw new Error(`invalid linktree ${e}`)
     }
   }
 }
