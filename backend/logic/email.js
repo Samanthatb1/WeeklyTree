@@ -25,7 +25,7 @@ async function sendEmail(email, links, memoizedGetData){
       let organization = await memoizedGetData(link)
       allEventData.push(organization)
     } catch(e) {
-      console.log(`link: ${link} didnt work`)
+      console.log(`link: ${link} didnt work: ${e}`)
     }
   }
 
