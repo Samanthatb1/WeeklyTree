@@ -80,8 +80,25 @@ app.delete("/deleteUser", async (req, res) => {
 // @desc keeps the backend alive
 // @route get /keepAlive
 // ****************************
-app.get("/keepAlive", (req, res) => {
+app.get("/keepAlive", async (req, res) => {
   console.log("keep alive ping")
+
+  const d = new Date();
+  let day = d.getDay()
+
+  const date = new Date(); 
+  const now = date.getHours();
+
+  if (day == 2 && now == 23){
+      try {
+      console.log("About to send")
+      const allUsers = await MongooseModel.find({}).lean();
+      await sendEmails(allUsers)
+    } catch(e){
+      console.log('Sending emails failed');
+    }
+  }
+
   res.status(200).send("successful");
 })
 
@@ -91,14 +108,14 @@ app.get("/keepAlive", (req, res) => {
 // ****************************
 // @desc sends all email subscriptions
 // ****************************
-setInterval(async () => {
-  try {
-    const allUsers = await MongooseModel.find({}).lean();
-    await sendEmails(allUsers)
-  } catch(e){
-    console.log('Sending emails failed');
-  }
-}, (86400 + 43200)* 1000);
+// setInterval(async () => {
+//   try {
+//     const allUsers = await MongooseModel.find({}).lean();
+//     await sendEmails(allUsers)
+//   } catch(e){
+//     console.log('Sending emails failed');
+//   }
+// }, (86400 + 43200)* 1000);
 
 // --------------------------------------
 // --------------------------------------
