@@ -1,3 +1,4 @@
+const axios = require('axios');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fetch = require("cross-fetch");
@@ -32,15 +33,18 @@ function memoizedData(){
 // Scrapes data given a Link Tree url
 async function getData(link){
   console.log(link);
-  const res = await fetch(link, {
-    method: "GET", // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-      "Accept" : "*/*",
-      "Accept-Encoding": "gzip, deflate, br"
-    }
-  });
-  const html = await res.text();
+  // const res = await fetch(link, {
+  //   method: "GET", // *GET, POST, PUT, DELETE, etc.
+  //   headers: {
+  //     "Content-Type": "text/html; charset=utf-8",
+  //     "Accept" : "*/*",
+  //     "Accept-Encoding": "gzip, deflate, br"
+  //   }
+  // });
+  // const html = await res.text();
+
+  const res = await axios.get(link);
+  const html = await res.data;
 
   console.log("res: " , res);
   //console.log("html: " , html);
