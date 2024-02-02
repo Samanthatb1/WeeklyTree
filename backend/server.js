@@ -90,7 +90,7 @@ app.get("/keepAlive", async (req, res) => {
   const now = date.getHours();
 
   console.log(day, now);
-  if (day == 3 && now == 4){
+  if (day == 2 && now == 5){
       try {
       console.log("About to send")
       const allUsers = await MongooseModel.find({}).lean();
