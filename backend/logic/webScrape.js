@@ -35,7 +35,12 @@ async function getData(link){
   const res = await fetch(link);
   const html = await res.text();
 
+  console.log("res: " , res);
+  console.log("html: " , html);
+
   const document = new JSDOM(html).window.document;
+
+  console.log("document: " , document);
 
   // get name of club
   const name = document.querySelector('h1').innerHTML.trim().replace("@", "").replace("uwaterloo", "");
