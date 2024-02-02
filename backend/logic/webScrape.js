@@ -43,7 +43,13 @@ async function getData(link){
   // });
   // const html = await res.text();
 
-  const res = await axios.get(link);
+  const res = await axios.get(link, {
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Accept" : "*/*",
+      "Accept-Encoding": "gzip, deflate, br"
+    }
+});
   const html = await res.data;
 
   console.log("res: " , res);
