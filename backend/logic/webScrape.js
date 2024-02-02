@@ -36,14 +36,14 @@ async function getData(link){
     method: "GET", // *GET, POST, PUT, DELETE, etc.
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Accept" : "*/*",
       "Accept-Encoding": "gzip, deflate, br"
     }
   });
   const html = await res.text();
 
   console.log("res: " , res);
-  console.log("html: " , html);
+  //console.log("html: " , html);
 
   const document = new JSDOM(html).window.document;
 
