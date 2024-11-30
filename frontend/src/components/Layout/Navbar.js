@@ -6,7 +6,7 @@ function NavBar() {
       <a href="/"> Home </a>
       <a href="/unsubscribe"> Unsubscribe </a>
     </div>
-  )
+  );
 }
 
 export default NavBar;
