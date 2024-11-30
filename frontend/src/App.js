@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout/Layout"
-import Landing from "./components/Landing/Landing"
-import Unsubscribe from "./components/Unsubscribe/Unsubscribe";
+import Landing from "./components/Landing/Landing";
+import Layout from "./components/Layout/Layout";
 import Success from "./components/Success/Success";
+import Unsubscribe from "./components/Unsubscribe/Unsubscribe";
 
 function App() {
   return (
