@@ -3,6 +3,7 @@ import NavBar from "./Navbar"
 import Footer from "./Footer"
 
 function Layout() {
+  console.log("Layout component rendered");
   return (
     <>
       <NavBar />

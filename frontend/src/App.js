@@ -10,8 +10,8 @@ function App() {
       {/* Layout renders the children thats passed in*/}
       <Route path="/" element={<Layout />}>
         <Route index element={<Landing />} />
-        <Route path="/unsubscribe" element={<Unsubscribe />} />
-        <Route path="/success" element={<Success />} />
+        <Route path="unsubscribe" element={<Unsubscribe />} />
+        <Route path="success" element={<Success />} />
       </Route>
     </Routes>
   );
