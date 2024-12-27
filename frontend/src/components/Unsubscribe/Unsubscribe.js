@@ -4,6 +4,7 @@ import "./Ubsubscribe.scss";
 const {deleteUser} = require('../../services/api');
 
 function Unsubscribe() {
+  console.log("Unsubscribe component rendered");
   const [email, setEmail] = useState([""]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
