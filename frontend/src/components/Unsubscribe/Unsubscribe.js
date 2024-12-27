@@ -12,7 +12,13 @@ function Unsubscribe() {
     setError(false);
     
     deleteUser(email)
-      .then(() => navigate("/success"))
+      .then((status) => {
+        if (status === 200) {
+          navigate("/success")
+        } else {
+          setError(true)
+        }
+      })
       .catch(e => setError(true))
   }
 
@@ -27,7 +33,7 @@ function Unsubscribe() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button onClick={submit}>Submit</button>
-      {error && <p>Sorry, there was an error. Possibly your email you provided is invalid</p>}
+      {error && <p>Sorry, there was an error unsubscribing. Either your email is incorrect, or you are not currently subscribed</p>}
     </div>
   )
 }

@@ -6,7 +6,7 @@ function Hero(){
       <div class="hero_text">
         <h1>Weekly Tree</h1>
         <p>Receive weekly email updates from your choice of LinkTree's, all in one email </p>
-        <button>start receiving emails</button>
+        <a href="#start" class="button">start receiving emails</a>
       </div>
       <div class="hero_image"></div>
     </div>

@@ -2,9 +2,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const sendEmails = require('./logic/email');
 const PORT = process.env.PORT || 3500;
 require("dotenv").config();
+const sendEmail = require('./utils/email')
 
 // Mongo DB Atlas
 const connectDB = require('./config/DBConnect');
@@ -37,6 +37,7 @@ app.post("/newUser", async (req, res) => {
 
   try {
     const user = await MongooseModel.findOne({email_id : newEmail});
+
     if (user !== null){
       // if the email exists already then update their links
       await MongooseModel.updateOne({email_id : newEmail}, {links: newLinks})
@@ -44,12 +45,14 @@ app.post("/newUser", async (req, res) => {
       // Insert one new user
       await MongooseModel.create({ email_id : newEmail, links: newLinks });
     }
+
+    await sendEmail(newEmail, "subscribed to");
+    res.status(200).send("successful");
+    
   } catch(e){
     console.log(e)
     res.status(500).send('Setting up the email subscription failed');
   }
-
-  res.status(200).send("successful");
 })
 
 // ****************************
@@ -64,6 +67,8 @@ app.delete("/deleteUser", async (req, res) => {
     if (user !== null){
       // if the email exists then delete
       await MongooseModel.deleteOne({email_id : givenEmail});
+      await sendEmail(givenEmail, "unsubscribed from");
+      res.status(200).send("delete successful");
     } else {
       // Email doesnt exist
       res.status(404).send('This email is not subscribed');
@@ -72,55 +77,7 @@ app.delete("/deleteUser", async (req, res) => {
     console.log(e)
     res.status(500).send('Deleting the email subscription failed');
   }
-
-  res.status(200).send("delete successful");
 })
-
-// ****************************
-// @desc keeps the backend alive
-// @route get /keepAlive
-// ****************************
-app.get("/keepAlive", async (req, res) => {
-  console.log("keep alive ping")
-
-  const d = new Date();
-  let day = d.getDay()
-
-  const date = new Date(); 
-  const now = date.getHours();
-
-  console.log(day, now);
-  if (day == 5 && now == 2 || 3){
-      try {
-      console.log("About to send")
-      const allUsers = await MongooseModel.find({}).lean();
-      await sendEmails(allUsers)
-    } catch(e){
-      console.log('Sending emails failed');
-    }
-  }
-
-  res.status(200).send("successful");
-})
-
-// --------------------------------------
-// --------------------------------------
-
-// ****************************
-// @desc sends all email subscriptions
-// ****************************
-// setInterval(async () => {
-//   try {
-//     const allUsers = await MongooseModel.find({}).lean();
-//     await sendEmails(allUsers)
-//   } catch(e){
-//     console.log('Sending emails failed');
-//   }
-// }, (86400 + 43200)* 1000);
-
-// --------------------------------------
-// --------------------------------------
-// --------------------------------------
 
 mongoose.connection.once('open', () => {
   console.log("connected to MongoDB")

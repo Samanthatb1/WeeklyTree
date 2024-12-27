@@ -38,13 +38,14 @@
       color: #347571;
     }
 
-    button{
+    a{
       font-size: 22px;
       text-transform: uppercase;
       background-color: #FF9F1C;
       color: white;
       border: 5px solid #FF9F1C;
       border-radius: 35px;
+      text-decoration: none;
       padding: 20px 30px;
       cursor: pointer;
       width: max-content;
@@ -141,13 +142,13 @@
     }
 
     .signup_submit{
-      margin: 20px 0 0 0;
+      margin: 20px 0 20px 0;
       font-size: 30px;
       background-color: #003049;
       color: white;
       border: 5px solid #003049;
       border-radius: 15px;
-      padding: 5px 30px;
+      padding: 5px 30px 5px 30px;
       cursor: pointer;
       text-transform: uppercase;
       font-family: 'Hind Madurai', sans-serif;

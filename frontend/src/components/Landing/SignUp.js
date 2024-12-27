@@ -91,7 +91,7 @@ function SignUp(){
   }
 
   return (
-    <div class="signup_container">
+    <div id="start" class="signup_container">
       <div class="signup_email">
         <h2>Sign Up</h2>
         <h3>Email</h3>

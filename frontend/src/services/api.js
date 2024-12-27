@@ -34,8 +34,7 @@ async function deleteUser(email){
       body: JSON.stringify({email_id : email}),
     });
 
-    const res = await req.text();
-    console.log(res)
+    return req.status;
   }
   catch(e){
     console.log("there was a failure in the delete fetch:", e)
