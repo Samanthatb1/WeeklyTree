@@ -17,6 +17,8 @@ function SignUp(){
     {name: "PM Club", link: "https://linktr.ee/uwaterloopm"},
     {name: "UW UX", link: "https://linktr.ee/uwux"},
     {name: "HTN", link: "https://linktr.ee/hackthenorth"},
+    {name: "uwcookingclub", link: "https://linktr.ee/uwcookingclub"},
+    {name: "uwmsa", link: "https://linktr.ee/uwmsa"},
   ]
   const [inputCount, setInputCount] = useState(0);
   const [linkTrees, setLinkTrees] = useState([NewInput(inputCount)]);
