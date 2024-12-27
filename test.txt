@@ -1,2 +1,0 @@
-1. unsubscribe with an email that never subscribed
-2. unsubscribe with invalid email
