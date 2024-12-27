@@ -19,6 +19,7 @@ function SignUp(){
     {name: "HTN", link: "https://linktr.ee/hackthenorth"},
     {name: "uwcookingclub", link: "https://linktr.ee/uwcookingclub"},
     {name: "uwmsa", link: "https://linktr.ee/uwmsa"},
+    {name: "You can add any club as long as there's a LinkTree!", link: ""},
   ]
   const [inputCount, setInputCount] = useState(0);
   const [linkTrees, setLinkTrees] = useState([NewInput(inputCount)]);
@@ -129,7 +130,7 @@ function SignUp(){
           {popularLinkTrees.map(tree => {
             return (
               <li>
-                <span><b>{tree.name}</b></span> : <span>{tree.link}</span>
+                <span><b>{tree.name}</b></span>{tree.link ? ' : ' : ''}<span>{tree.link}</span>
               </li>
             )
           })}
