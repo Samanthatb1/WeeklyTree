@@ -41,4 +41,4 @@ async function deleteUser(email){
   }
 }
 
-module.exports = {addUser, deleteUser}
+export { addUser, deleteUser };

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "./Landing.scss";
 import Input from "./Input";
 import { useNavigate } from "react-router-dom";
-const {addUser} = require('../../services/api');
+import { addUser } from '../../services/api';
 
 function SignUp(){
   const popularLinkTrees = [
